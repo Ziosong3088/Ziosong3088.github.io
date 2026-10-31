@@ -147,6 +147,8 @@
 
 <div class="lightbox" id="lightbox" aria-hidden="true">
   <button class="lightbox-close" id="lightbox-close" aria-label="Close">×</button>
+  <button class="lightbox-nav prev" id="lightbox-prev" aria-label="Previous photo">‹</button>
+  <button class="lightbox-nav next" id="lightbox-next" aria-label="Next photo">›</button>
   <img id="lightbox-img" src="" alt="">
   <p id="lightbox-cap"></p>
 </div>
@@ -155,9 +157,26 @@
 (function(){
   var box=document.getElementById('lightbox'),
       img=document.getElementById('lightbox-img'),
-      cap=document.getElementById('lightbox-cap');
-  function open(src,text,alt){
-    img.src=src; img.alt=alt||''; cap.textContent=text||'';
+      cap=document.getElementById('lightbox-cap'),
+      items=[], idx=0;
+  function captionFor(el){
+    if(el.closest('.featured')) return 'Original art work';
+    var fig=el.closest('figure'); if(!fig) return '';
+    var fc=fig.querySelector('figcaption'); if(!fc) return '';
+    var title=fc.childNodes[0].textContent.trim(),
+        sub=fc.querySelector('span');
+    return sub ? title+' — '+sub.textContent.trim() : title;
+  }
+  var feat=document.querySelector('.featured img');
+  if(feat) items.push(feat);
+  document.querySelectorAll('.gallery-grid figure img').forEach(function(el){ items.push(el); });
+  function show(i){
+    idx=(i+items.length)%items.length;
+    var el=items[idx];
+    img.src=el.src; img.alt=el.alt||''; cap.textContent=captionFor(el);
+  }
+  function open(i){
+    show(i);
     box.classList.add('open'); box.setAttribute('aria-hidden','false');
     document.body.style.overflow='hidden';
   }
@@ -165,17 +184,17 @@
     box.classList.remove('open'); box.setAttribute('aria-hidden','true');
     img.src=''; document.body.style.overflow='';
   }
-  document.querySelectorAll('.gallery-grid figure img').forEach(function(el){
-    el.addEventListener('click',function(){
-      var fig=el.closest('figure'), fc=fig?fig.querySelector('figcaption'):null;
-      open(el.src, fc?fc.textContent.trim():'', el.alt);
-    });
-  });
-  var feat=document.querySelector('.featured img');
-  if(feat){ feat.addEventListener('click',function(){ open(feat.src,'Original art work',feat.alt); }); }
+  items.forEach(function(el,i){ el.addEventListener('click',function(){ open(i); }); });
   document.getElementById('lightbox-close').addEventListener('click',close);
-  box.addEventListener('click',function(e){ if(e.target!==img) close(); });
-  document.addEventListener('keydown',function(e){ if(e.key==='Escape') close(); });
+  document.getElementById('lightbox-prev').addEventListener('click',function(e){ e.stopPropagation(); show(idx-1); });
+  document.getElementById('lightbox-next').addEventListener('click',function(e){ e.stopPropagation(); show(idx+1); });
+  box.addEventListener('click',function(e){ if(e.target===box) close(); });
+  document.addEventListener('keydown',function(e){
+    if(!box.classList.contains('open')) return;
+    if(e.key==='Escape') close();
+    if(e.key==='ArrowLeft') show(idx-1);
+    if(e.key==='ArrowRight') show(idx+1);
+  });
 })();
 </script>
 
