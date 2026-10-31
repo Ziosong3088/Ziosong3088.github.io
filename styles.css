@@ -79,9 +79,9 @@ footer{text-align:center;color:var(--muted);font-size:.9rem;padding:56px 24px 40
 .marquee.reverse{animation-direction:reverse;animation-duration:26s}
 .tools:hover .marquee{animation-play-state:paused}
 @keyframes tools-scroll{to{transform:translateX(-50%)}}
-.tool{display:flex;align-items:center;gap:12px;background:#f4f1ea;border-radius:10px;padding:12px 22px;margin-right:18px;white-space:nowrap}
-.tool img{height:34px;width:auto;display:block}
-.tool span{color:#1a1712;font-weight:bold;font-size:.98rem;letter-spacing:.4px}
+.tool{display:flex;align-items:center;gap:10px;background:#f4f1ea;border-radius:8px;padding:9px 18px;margin-right:16px;white-space:nowrap}
+.tool img{height:24px;width:auto;max-width:96px;object-fit:contain;display:block}
+.tool span{color:#1a1712;font-weight:bold;font-size:.92rem;letter-spacing:.4px}
 @media (prefers-reduced-motion:reduce){
   .marquee{animation:none}
 }
