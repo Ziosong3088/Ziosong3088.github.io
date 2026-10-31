@@ -1,8 +1,8 @@
 :root{
   --bg:#0e0d0b;
   --panel:#171512;
-  --gold:#c9a227;
-  --gold-soft:#e6c766;
+  --gold:#ca9f21;
+  --gold-soft:#d8b34c;
   --text:#f2ede3;
   --muted:#b8b0a0;
 }
@@ -12,7 +12,7 @@ body{background:var(--bg);color:var(--text);font-family:Georgia,'Times New Roman
 a{color:var(--gold-soft)}
 
 /* Header / hero */
-header{border-bottom:3px solid var(--gold);background:radial-gradient(1200px 500px at 50% -10%,#2a2517 0%,var(--bg) 60%)}
+header{border-bottom:3px solid var(--gold);background:radial-gradient(1200px 500px at 50% -10%,#1d1c19 0%,var(--bg) 60%)}
 nav{display:flex;justify-content:space-between;align-items:center;max-width:1000px;margin:0 auto;padding:20px 24px}
 .logo{font-weight:bold;letter-spacing:3px;color:var(--gold);font-size:1.1rem}
 nav .links a{margin-left:22px;text-decoration:none;color:var(--text);font-size:.95rem;letter-spacing:1px}
