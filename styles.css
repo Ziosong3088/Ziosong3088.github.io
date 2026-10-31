@@ -71,6 +71,21 @@ footer{text-align:center;color:var(--muted);font-size:.9rem;padding:56px 24px 40
 .gallery-grid figcaption{padding:12px 14px 14px;color:var(--text);font-size:1rem;transition:color .35s ease}
 .gallery-grid figcaption span{display:block;color:var(--muted);font-size:.85rem;margin-top:2px}
 
+/* Tools I Use — scrolling logo marquee (two rows, opposite directions) */
+.tools{padding:44px 0 6px;overflow:hidden}
+.tools-title{text-align:center;color:var(--gold);font-size:1.4rem;letter-spacing:1px;margin-bottom:22px;border-bottom:none;padding-bottom:0}
+.marquee-row{overflow:hidden}
+.marquee{display:flex;width:max-content;animation:tools-scroll 30s linear infinite;padding:5px 0}
+.marquee.reverse{animation-direction:reverse;animation-duration:26s}
+.tools:hover .marquee{animation-play-state:paused}
+@keyframes tools-scroll{to{transform:translateX(-50%)}}
+.tool{display:flex;align-items:center;gap:12px;background:#f4f1ea;border-radius:10px;padding:12px 22px;margin-right:18px;white-space:nowrap}
+.tool img{height:34px;width:auto;display:block}
+.tool span{color:#1a1712;font-weight:bold;font-size:.98rem;letter-spacing:.4px}
+@media (prefers-reduced-motion:reduce){
+  .marquee{animation:none}
+}
+
 @media (max-width:900px){
   .gallery-grid{grid-template-columns:repeat(2,1fr)}
 }
