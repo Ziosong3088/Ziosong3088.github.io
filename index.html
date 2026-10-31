@@ -145,5 +145,39 @@
   <p>© 2026 Zio Song · Ottawa, Canada</p>
 </footer>
 
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <button class="lightbox-close" id="lightbox-close" aria-label="Close">×</button>
+  <img id="lightbox-img" src="" alt="">
+  <p id="lightbox-cap"></p>
+</div>
+
+<script>
+(function(){
+  var box=document.getElementById('lightbox'),
+      img=document.getElementById('lightbox-img'),
+      cap=document.getElementById('lightbox-cap');
+  function open(src,text,alt){
+    img.src=src; img.alt=alt||''; cap.textContent=text||'';
+    box.classList.add('open'); box.setAttribute('aria-hidden','false');
+    document.body.style.overflow='hidden';
+  }
+  function close(){
+    box.classList.remove('open'); box.setAttribute('aria-hidden','true');
+    img.src=''; document.body.style.overflow='';
+  }
+  document.querySelectorAll('.gallery-grid figure img').forEach(function(el){
+    el.addEventListener('click',function(){
+      var fig=el.closest('figure'), fc=fig?fig.querySelector('figcaption'):null;
+      open(el.src, fc?fc.textContent.trim():'', el.alt);
+    });
+  });
+  var feat=document.querySelector('.featured img');
+  if(feat){ feat.addEventListener('click',function(){ open(feat.src,'Original art work',feat.alt); }); }
+  document.getElementById('lightbox-close').addEventListener('click',close);
+  box.addEventListener('click',function(e){ if(e.target!==img) close(); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') close(); });
+})();
+</script>
+
 </body>
 </html>
