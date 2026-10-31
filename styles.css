@@ -75,10 +75,17 @@ footer{text-align:center;color:var(--muted);font-size:.9rem;padding:56px 24px 40
 .tools{padding:44px 0 6px;overflow:hidden}
 .tools-title{text-align:center;color:var(--gold);font-size:1.4rem;letter-spacing:1px;margin-bottom:22px;border-bottom:none;padding-bottom:0}
 .marquee-row{overflow:hidden}
-.marquee{display:flex;width:max-content;animation:tools-scroll 30s linear infinite;padding:5px 0}
-.marquee.reverse{animation-direction:reverse;animation-duration:26s}
-.tools:hover .marquee{animation-play-state:paused}
+.marquee{display:flex;width:max-content;animation:tools-scroll 38s linear infinite;padding:5px 0}
+.marquee.reverse{animation-direction:reverse;animation-duration:34s}
 @keyframes tools-scroll{to{transform:translateX(-50%)}}
+.tool-squares{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;max-width:1000px;margin:26px auto 0;padding:0 24px}
+.tool-square{background:var(--panel);border:1px solid #2c2921;border-radius:10px;aspect-ratio:4/3;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:16px}
+.tool-square img{height:52px;width:auto;max-width:78%;object-fit:contain;display:block}
+.tool-square img.invert{filter:invert(1)}
+.tool-square span{color:var(--text);font-size:.92rem;letter-spacing:.5px}
+@media (max-width:640px){
+  .tool-squares{grid-template-columns:repeat(2,1fr)}
+}
 .tool{display:flex;align-items:center;gap:10px;background:#f4f1ea;border-radius:8px;padding:9px 18px;margin-right:16px;white-space:nowrap}
 .tool img{height:24px;width:auto;max-width:96px;object-fit:contain;display:block}
 .tool span{color:#1a1712;font-weight:bold;font-size:.92rem;letter-spacing:.4px}
