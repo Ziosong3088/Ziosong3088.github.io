@@ -151,3 +151,7 @@ footer{text-align:center;color:var(--muted);font-size:.9rem;padding:56px 24px 40
 .xcard-center{text-align:center;padding:20px}
 .xcard-center h3{font-size:1.7rem;letter-spacing:2px;color:var(--text);margin-bottom:16px}
 #animation{scroll-margin-top:24px}
+
+/* Sub-pages (multi-page layout) */
+.back-link{display:inline-block;color:var(--gold-soft);text-decoration:none;letter-spacing:.5px;margin-bottom:16px}
+.back-link:hover{color:var(--gold)}

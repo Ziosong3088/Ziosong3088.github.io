@@ -71,6 +71,7 @@
       img = document.getElementById('lightbox-img'),
       cap = document.getElementById('lightbox-cap'),
       items = [], idx = 0;
+  if (!box) return; // pages without a lightbox (home, sketchbook, 3D/2D) skip this part
 
   function captionFor(el) {
     var fig = el.closest('figure'); if (!fig) return '';
