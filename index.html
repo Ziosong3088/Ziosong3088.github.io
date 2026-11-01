@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Zio Song — 3D Animator & Artist</title>
 <meta name="description" content="Portfolio of Zio Song, 3D animator and artist based in Ottawa, Canada. Maya animation, life drawing, and oil pastel.">
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -64,14 +64,35 @@
   <section id="work">
     <h2>Explore my work!</h2>
 
+    <!-- ===== Artwork carousel — slides follow the order of the files Zio attached ===== -->
+    <div class="carousel" id="carousel" aria-label="Artwork slider">
+      <div class="carousel-track" id="carousel-track">
+        <div class="carousel-slide"><img src="images/ink-crowd.jpg" alt="Dense black ink drawing of a tangled crowd of figures"></div>
+        <div class="carousel-slide"><img src="images/nature-study-1.jpg" alt="Ink nature studies: pine cone, oak leaves, trees and mushrooms"></div>
+        <div class="carousel-slide"><img src="images/nature-study-2.jpg" alt="Ink nature studies: willow tree, mushrooms, a snail and a hollow log"></div>
+        <div class="carousel-slide"><img src="images/crime-scene.jpg" alt="Ink drawing of investigators examining a crime scene with numbered evidence markers"></div>
+        <div class="carousel-slide"><img src="images/cyborg-couple.jpg" alt="Ink and wash drawing of two machine-patched cyborg figures"></div>
+      </div>
+      <!-- Click the left half of the stage for the previous photo, the right half for the next -->
+      <button class="carousel-zone prev" id="zone-prev" aria-label="Previous photo"></button>
+      <button class="carousel-zone next" id="zone-next" aria-label="Next photo"></button>
+      <div class="carousel-controls">
+        <button class="carousel-arrow" id="car-prev" aria-label="Previous photo">&#8249;</button>
+        <div class="carousel-dots" id="car-dots"></div>
+        <button class="carousel-arrow" id="car-next" aria-label="Next photo">&#8250;</button>
+      </div>
+    </div>
+
     <article class="featured">
       <img src="images/guardian-beast.jpg" alt="Ink and wash drawing of a Haechi guardian beast plunging head-first past plum blossom branches">
       <div class="featured-label">
         <h3>Original art work</h3>
-        <a class="button ghost" href="#gallery">See more</a>
+        <button class="button ghost" id="see-more-btn" aria-expanded="false">See more</button>
       </div>
     </article>
 
+    <div class="more-wrap" id="more-wrap">
+    <div class="more-inner">
     <div class="gallery-grid" id="gallery">
       <figure>
         <img src="images/ways-to-machu-picchu.jpg" alt="Dense ink composition of tigers, pigs and an elephant on a motorbike">
@@ -101,6 +122,8 @@
         <img src="images/sketchbook-01.jpg" alt="Ink and wash drawing of two machine-patched cyborg figures, one with a red heart on the shoulder">
         <figcaption>Sketchbook 01<span>Ink &amp; wash</span></figcaption>
       </figure>
+    </div>
+    </div>
     </div>
 
     <article class="card text-only">
@@ -153,50 +176,7 @@
   <p id="lightbox-cap"></p>
 </div>
 
-<script>
-(function(){
-  var box=document.getElementById('lightbox'),
-      img=document.getElementById('lightbox-img'),
-      cap=document.getElementById('lightbox-cap'),
-      items=[], idx=0;
-  function captionFor(el){
-    if(el.closest('.featured')) return 'Original art work';
-    var fig=el.closest('figure'); if(!fig) return '';
-    var fc=fig.querySelector('figcaption'); if(!fc) return '';
-    var title=fc.childNodes[0].textContent.trim(),
-        sub=fc.querySelector('span');
-    return sub ? title+' — '+sub.textContent.trim() : title;
-  }
-  var feat=document.querySelector('.featured img');
-  if(feat) items.push(feat);
-  document.querySelectorAll('.gallery-grid figure img').forEach(function(el){ items.push(el); });
-  function show(i){
-    idx=(i+items.length)%items.length;
-    var el=items[idx];
-    img.src=el.src; img.alt=el.alt||''; cap.textContent=captionFor(el);
-  }
-  function open(i){
-    show(i);
-    box.classList.add('open'); box.setAttribute('aria-hidden','false');
-    document.body.style.overflow='hidden';
-  }
-  function close(){
-    box.classList.remove('open'); box.setAttribute('aria-hidden','true');
-    img.src=''; document.body.style.overflow='';
-  }
-  items.forEach(function(el,i){ el.addEventListener('click',function(){ open(i); }); });
-  document.getElementById('lightbox-close').addEventListener('click',close);
-  document.getElementById('lightbox-prev').addEventListener('click',function(e){ e.stopPropagation(); show(idx-1); });
-  document.getElementById('lightbox-next').addEventListener('click',function(e){ e.stopPropagation(); show(idx+1); });
-  box.addEventListener('click',function(e){ if(e.target===box) close(); });
-  document.addEventListener('keydown',function(e){
-    if(!box.classList.contains('open')) return;
-    if(e.key==='Escape') close();
-    if(e.key==='ArrowLeft') show(idx-1);
-    if(e.key==='ArrowRight') show(idx+1);
-  });
-})();
-</script>
+<script src="script.js"></script>
 
 </body>
 </html>
