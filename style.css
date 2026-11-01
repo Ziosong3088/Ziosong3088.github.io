@@ -189,6 +189,9 @@ nav .links a{font-size:.88rem}
 .about-name{font-size:1rem}
 
 /* ===== Top bar — gray band (Trinity-style separation), white logo, gold Work ===== */
-.topbar{background:#2b2926;border-bottom:1px solid #3b3733}
+.topbar{background:#1e1c1a;border-bottom:1px solid #3b3733}
 .logo{color:var(--text)}
 nav .links a:first-child{color:var(--gold-soft);font-weight:700}
+
+/* Logo — delicate light serif like his reference; topbar matched to the logo-tile gray */
+.logo{font-weight:300;font-size:1.55rem;letter-spacing:.5px}
