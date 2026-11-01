@@ -171,3 +171,19 @@ footer{text-align:center;color:var(--muted);font-size:.9rem;padding:56px 24px 40
   .about-hero-text{position:static;grid-template-columns:1fr;background:var(--bg);padding:24px 6px 4px}
   .about-hero-text p{text-shadow:none}
 }
+
+/* ===== Typography — Cormorant Garamond (display) / Inter (body) / Space Mono (menu & tags) ===== */
+body{font-family:'Inter','Helvetica Neue',Helvetica,Arial,sans-serif}
+h1,h2,h3,.logo,.subhead,.xcard-center h3,.lightbox p{font-family:'Cormorant Garamond',Georgia,'Times New Roman',serif}
+.hero h1{font-weight:500;letter-spacing:.5px}
+h2{font-size:2.15rem;font-weight:600}
+.card-text h3{font-size:1.55rem;font-weight:600}
+.logo{font-weight:600;font-size:1.35rem}
+.gallery-grid figcaption{font-family:'Cormorant Garamond',Georgia,serif;font-size:1.22rem;font-weight:600}
+.gallery-grid figcaption span{font-family:'Inter',sans-serif;font-weight:400}
+nav .links a,.kicker,.button,.skills li,.back-link,.about-name{font-family:'Space Mono','Courier New',monospace}
+nav .links a{font-size:.88rem}
+.kicker{font-size:.78rem}
+.button{font-size:.92rem}
+.skills li{font-size:.85rem}
+.about-name{font-size:1rem}
