@@ -156,17 +156,18 @@ footer{text-align:center;color:var(--muted);font-size:.9rem;padding:56px 24px 40
 .back-link{display:inline-block;color:var(--gold-soft);text-decoration:none;letter-spacing:.5px;margin-bottom:16px}
 .back-link:hover{color:var(--gold)}
 
-/* ===== About Me — full-bleed photo, top & bottom black fades, half/half text ===== */
-.about-hero{position:relative;width:100vw;margin-left:calc(50% - 50vw);overflow:hidden;background:var(--bg)}
-.about-hero>img{width:100%;height:min(80vh,780px);min-height:460px;object-fit:cover;object-position:center 30%;display:block}
-.about-hero::before{content:"";position:absolute;top:0;left:0;right:0;height:190px;background:linear-gradient(var(--bg) 8%,transparent);z-index:1}
-.about-hero-text{position:absolute;left:0;right:0;bottom:0;z-index:2;display:grid;grid-template-columns:1fr 1fr;gap:20px 48px;max-width:1000px;margin:0 auto;padding:230px 24px 44px;background:linear-gradient(transparent,rgba(14,13,11,.78) 45%,var(--bg) 85%)}
-.about-name{color:var(--gold-soft);font-size:1.08rem;letter-spacing:.4px;margin-bottom:16px}
-.about-hero-text p{color:var(--text);max-width:none;text-shadow:0 1px 10px rgba(0,0,0,.35)}
+/* ===== About Me — bounded photo frame (his drag-box ratio), fades kept ===== */
+.about-hero{position:relative;width:min(1080px,94vw);margin:6px auto 0;aspect-ratio:4/3;overflow:hidden;background:var(--bg);border-radius:4px}
+.about-hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 42%;display:block}
+.about-hero::before{content:"";position:absolute;top:0;left:0;right:0;height:150px;background:linear-gradient(var(--bg) 6%,transparent);z-index:1}
+.about-hero-text{position:absolute;left:0;right:0;bottom:0;z-index:2;display:grid;grid-template-columns:1fr 1fr;gap:18px 44px;padding:190px 38px 36px;background:linear-gradient(transparent,rgba(14,13,11,.78) 45%,rgba(14,13,11,.96) 85%)}
+.about-name{color:var(--gold-soft);font-size:1.08rem;letter-spacing:.4px;margin-bottom:14px}
+.about-hero-text p{color:var(--text);max-width:none;text-shadow:0 1px 10px rgba(0,0,0,.4)}
 .about-col{align-self:end}
 @media (max-width:860px){
-  .about-hero>img{height:54vh;min-height:340px}
-  .about-hero::before{height:110px}
-  .about-hero-text{position:static;grid-template-columns:1fr;background:var(--bg);padding:28px 24px 6px}
+  .about-hero{aspect-ratio:auto;width:94vw}
+  .about-hero>img{position:static;height:auto;aspect-ratio:4/3}
+  .about-hero::before{height:90px}
+  .about-hero-text{position:static;grid-template-columns:1fr;background:var(--bg);padding:24px 6px 4px}
   .about-hero-text p{text-shadow:none}
 }
