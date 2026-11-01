@@ -1,11 +1,13 @@
 /* ============================================================
    Zio Song — portfolio interactions
-   1) Hero artwork carousel (Explore my work!)
-   2) "See more" expand for the rest of the collection
-   3) Full-screen lightbox viewer for the gallery + featured piece
+   1) Sketchbook carousel (one drawing at a time)
+   2) Full-screen lightbox viewer for the Original art work grid
+   Note: the "See more" buttons are plain anchor links
+   (#original-art / #sketchbook) — the smooth glide comes from
+   `scroll-behavior: smooth` in style.css, no JS needed.
    ============================================================ */
 
-/* ---------- 1) Carousel ---------- */
+/* ---------- 1) Sketchbook carousel ---------- */
 (function () {
   var track = document.getElementById('carousel-track');
   if (!track) return;
@@ -63,19 +65,7 @@
   render();
 })();
 
-/* ---------- 2) "See more" expand ---------- */
-(function () {
-  var btn = document.getElementById('see-more-btn');
-  var wrap = document.getElementById('more-wrap');
-  if (!btn || !wrap) return;
-  btn.addEventListener('click', function () {
-    var open = wrap.classList.toggle('open');
-    btn.textContent = open ? 'See less' : 'See more';
-    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-  });
-})();
-
-/* ---------- 3) Full-screen lightbox ---------- */
+/* ---------- 2) Full-screen lightbox (Original art work grid) ---------- */
 (function () {
   var box = document.getElementById('lightbox'),
       img = document.getElementById('lightbox-img'),
@@ -83,7 +73,6 @@
       items = [], idx = 0;
 
   function captionFor(el) {
-    if (el.closest('.featured')) return 'Original art work';
     var fig = el.closest('figure'); if (!fig) return '';
     var fc = fig.querySelector('figcaption'); if (!fc) return '';
     var title = fc.childNodes[0].textContent.trim(),
@@ -91,8 +80,6 @@
     return sub ? title + ' — ' + sub.textContent.trim() : title;
   }
 
-  var feat = document.querySelector('.featured img');
-  if (feat) items.push(feat);
   document.querySelectorAll('.gallery-grid figure img').forEach(function (el) { items.push(el); });
 
   function show(i) {

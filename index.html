@@ -64,37 +64,32 @@
   <section id="work">
     <h2>Explore my work!</h2>
 
-    <!-- ===== Artwork carousel — slides follow the order of the files Zio attached ===== -->
-    <div class="carousel" id="carousel" aria-label="Artwork slider">
-      <div class="carousel-track" id="carousel-track">
-        <div class="carousel-slide"><img src="images/ink-crowd.jpg" alt="Dense black ink drawing of a tangled crowd of figures"></div>
-        <div class="carousel-slide"><img src="images/nature-study-1.jpg" alt="Ink nature studies: pine cone, oak leaves, trees and mushrooms"></div>
-        <div class="carousel-slide"><img src="images/nature-study-2.jpg" alt="Ink nature studies: willow tree, mushrooms, a snail and a hollow log"></div>
-        <div class="carousel-slide"><img src="images/crime-scene.jpg" alt="Ink drawing of investigators examining a crime scene with numbered evidence markers"></div>
-        <div class="carousel-slide"><img src="images/cyborg-couple.jpg" alt="Ink and wash drawing of two machine-patched cyborg figures"></div>
-      </div>
-      <!-- Click the left half of the stage for the previous photo, the right half for the next -->
-      <button class="carousel-zone prev" id="zone-prev" aria-label="Previous photo"></button>
-      <button class="carousel-zone next" id="zone-next" aria-label="Next photo"></button>
-      <div class="carousel-controls">
-        <button class="carousel-arrow" id="car-prev" aria-label="Previous photo">&#8249;</button>
-        <div class="carousel-dots" id="car-dots"></div>
-        <button class="carousel-arrow" id="car-next" aria-label="Next photo">&#8250;</button>
-      </div>
+    <!-- ===== Category cards ===== -->
+    <div class="explore-cards">
+      <article class="xcard">
+        <img src="images/guardian-beast.jpg" alt="Ink and wash drawing of a Haechi guardian beast plunging head-first past plum blossom branches">
+        <div class="xcard-label">
+          <h3>Original art work</h3>
+          <a class="button ghost" href="#original-art">See more</a>
+        </div>
+      </article>
+      <article class="xcard">
+        <img src="images/nature-study-1.jpg" alt="Sketchbook page of ink nature studies: pine cone, oak leaves, trees and mushrooms">
+        <div class="xcard-label">
+          <h3>Sketchbook</h3>
+          <a class="button ghost" href="#sketchbook">See more</a>
+        </div>
+      </article>
+      <article class="xcard placeholder">
+        <span>Coming Soon</span>
+      </article>
     </div>
 
-    <article class="featured">
-      <img src="images/guardian-beast.jpg" alt="Ink and wash drawing of a Haechi guardian beast plunging head-first past plum blossom branches">
-      <div class="featured-label">
-        <h3>Original art work</h3>
-        <button class="button ghost" id="see-more-btn" aria-expanded="false">See more</button>
-      </div>
-    </article>
-
-    <div class="more-wrap" id="more-wrap">
-    <div class="more-inner">
-    <div class="gallery-grid" id="gallery">
-      <figure>
+    <!-- ===== Original art work — full collection ===== -->
+    <div id="original-art" class="anchor-block">
+      <h3 class="subhead">Original art work</h3>
+      <div class="gallery-grid" id="gallery">
+<figure>
         <img src="images/ways-to-machu-picchu.jpg" alt="Dense ink composition of tigers, pigs and an elephant on a motorbike">
         <figcaption>Ways to Machu Picchu<span>Ink, 2026</span></figcaption>
       </figure>
@@ -122,7 +117,20 @@
         <img src="images/sketchbook-01.jpg" alt="Ink and wash drawing of two machine-patched cyborg figures, one with a red heart on the shoulder">
         <figcaption>Sketchbook 01<span>Ink &amp; wash</span></figcaption>
       </figure>
+      </div>
     </div>
+
+    <!-- ===== Sketchbook — one-by-one slider ===== -->
+    <div id="sketchbook" class="anchor-block">
+      <h3 class="subhead">Sketchbook</h3>
+<!-- ===== Artwork carousel — slides follow the order of the files Zio attached ===== -->
+  <div class="carousel" id="carousel" aria-label="Artwork slider">
+    <div class="carousel-track" id="carousel-track">
+      <div class="carousel-slide"><img src="images/ink-crowd.jpg" alt="Dense black ink drawing of a tangled crowd of figures"></div>
+      <div class="carousel-slide"><img src="images/nature-study-1.jpg" alt="Ink nature studies: pine cone, oak leaves, trees and mushrooms"></div>
+      <div class="carousel-slide"><img src="images/nature-study-2.jpg" alt="Ink nature studies: willow tree, mushrooms, a snail and a hollow log"></div>
+      <div class="carousel-slide"><img src="images/crime-scene.jpg" alt="Ink drawing of investigators examining a crime scene with numbered evidence markers"></div>
+      <div class="carousel-slide"><img src="images/cyborg-couple.jpg" alt="Ink and wash drawing of two machine-patched cyborg figures"></div>
     </div>
     </div>
 
